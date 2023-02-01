@@ -10,19 +10,19 @@ from Adarsh import StartTime
 START_TEXT = """ Your Telegram DC Is : `{}`  """
 
 
-@StreamBot.on_message(filters.regex("maintainers😎"))
+@StreamBot.on_message(filters.regex("Channels"))
 async def maintainers(b,m):
     try:
        await b.send_message(chat_id=m.chat.id,text="HELLO",quote=True)
     except Exception:
                 await b.send_message(
                     chat_id=m.chat.id,
-                    text="I am Made By [GreyMatter's Bot](https://t.me/GreyMatter_Bots)",
+                    text="[Achiever Classroom Lectures](https://t.me/+Zi50V2vPxL8xNGJh)\n\n[Enthuse Classroom Lectures](https://t.me/+81ZPiZ8WRr83NDIx)\n\n[Nurture ClassroomLectures](https://t.me/+tDEZxSV4M8U1YjNh)",
                     
                     reply_markup=InlineKeyboardMarkup(
                         [
                             [
-                                InlineKeyboardButton("Owner💻", url=f"https://t.me/GreyMatter_Owner")
+                                InlineKeyboardButton("Backup🔰", url=f"https://t.me/Classroom_lecturess")
                             ]
                         ]
                     ),
@@ -42,7 +42,7 @@ async def follow_user(b,m):
                     reply_markup=InlineKeyboardMarkup(
                         [
                             [
-                                InlineKeyboardButton("Subscribe ❤️", url=f"https://youtube.com/@GreyMattersYT")
+                                InlineKeyboardButton("Subscribe ❤️", url=f"https://youtube.com/@AmitAD")
                             ]
                         ]
                     ),
@@ -50,20 +50,31 @@ async def follow_user(b,m):
                     disable_web_page_preview=True)
         
 
-@StreamBot.on_message(filters.regex("DC"))
+@StreamBot.on_message(filters.regex("BOTS"))
 async def start(bot, update):
-    text = START_TEXT.format(update.from_user.dc_id)
-    await update.reply_text(
-        text=text,
-        disable_web_page_preview=True,
-        quote=True
-    )
+    try:
+   await b.send_message(chat_id=m.chat.id,text="HELLO",quote=True)
+    except Exception:
+                await b.send_message(
+                    chat_id=m.chat.id,
+                    text="<B>HERE'S THE BOT LINK</B>",
+                    
+                    reply_markup=InlineKeyboardMarkup(
+                        [
+                            [
+                                InlineKeyboardButton("BOT #1❤️", url=f"https://t.me/samit_07bot")
+                                InlineKeyboardButton("BOT #2❤️", url=f"https://t.me/aaamit_02bot")
+                            ]
+                        ]
+                    ),
+                    
+                    disable_web_page_preview=True)
 
     
     
 @StreamBot.on_message(filters.command("list"))
 async def list(l, m):
-    LIST_MSG = "Hi! {} Here is a list of all my commands \n \n 1 . `start⚡️` \n 2. `help📚` \n 3. `login🔑` \n 4.`Subscribe ❤️` \n 5. `ping📡` \n 6. `status📊` \n 7. `DC` this tells your telegram dc \n 8. `maintainers😎` "
+    LIST_MSG = "Hi! {} Here is a list of all my commands \n \n 1 . `start⚡️` \n 2. `help📚` \n 3. `login🔑` \n 4.`Subscribe ❤️` \n 5. `ping📡` \n 6. `status📊` \n 7. `BOT` this tells your telegram dc \n 8. `Channel` "
     await l.send_message(chat_id = m.chat.id,
         text = LIST_MSG.format(m.from_user.mention(style="md"))
         
