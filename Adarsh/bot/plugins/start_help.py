@@ -128,7 +128,7 @@ async def help_handler(bot, message):
         disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton("💁‍♂️ Owner", url="https://amit_08bot")],
+                [InlineKeyboardButton("💁‍♂️ Owner", url="https://t.me/amit_08bot")],
                 [InlineKeyboardButton("💥 BOT", url="https://t.me/samit_07bot")]
             ]
         )
