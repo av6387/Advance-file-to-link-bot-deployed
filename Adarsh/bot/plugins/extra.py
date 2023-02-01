@@ -17,7 +17,7 @@ async def maintainers(b,m):
     except Exception:
                 await b.send_message(
                     chat_id=m.chat.id,
-                    text="jjj",
+                    text="[Achiever Classroom Lectures](https://t.me/+Zi50V2vPxL8xNGJh)\n\n[Enthuse Classroom Lectures](https://t.me/+81ZPiZ8WRr83NDIx)\n\n[Nurture ClassroomLectures](https://t.me/+tDEZxSV4M8U1YjNh)",
                     
                     reply_markup=InlineKeyboardMarkup(
                         [
