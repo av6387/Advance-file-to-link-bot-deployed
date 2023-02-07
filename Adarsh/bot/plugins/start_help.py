@@ -17,7 +17,7 @@ if MY_PASS:
             buttonz=ReplyKeyboardMarkup(
             [
                 ["start⚡️","help📚","login🔑","DC"],
-                ["Subscribe ❤️","ping📡","status📊","Channel"]
+                ["DONATE ","ping📡","status📊","Channel"]
                         
             ],
             resize_keyboard=True
@@ -26,7 +26,7 @@ else:
             buttonz=ReplyKeyboardMarkup(
             [
                 ["start⚡️","help📚","DC"],
-                ["Subscribe ❤️","ping📡","status📊","Channel"]
+                ["DONATE ","ping📡","status📊","Channel"]
                         
             ],
             resize_keyboard=True
@@ -128,8 +128,8 @@ async def help_handler(bot, message):
         disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton("💁‍♂️ Owner", url="https://t.me/amit_08bot")],
-                [InlineKeyboardButton("💥 BOT", url="https://t.me/samit_07bot")]
+                [InlineKeyboardButton("💁‍♂️ Owner", url="https://t.me/AlexanderContact_bot")],
+                [InlineKeyboardButton("💥 Source Code", url="https://t.me/AlexanderContact_bot")]
             ]
         )
     )
