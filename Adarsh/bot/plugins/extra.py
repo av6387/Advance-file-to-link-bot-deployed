@@ -37,12 +37,12 @@ async def follow_user(b,m):
     except Exception:
                 await b.send_message(
                     chat_id=m.chat.id,
-                    text="<B>HERE'S THE SUBSCRIBE LINK</B>",
+                    text="<B>MESSAGE HERE TO DONATE ❤</B>",
                     
                     reply_markup=InlineKeyboardMarkup(
                         [
                             [
-                                InlineKeyboardButton("MESSAGE TO DONATE ❤️", url=f"https://t.me/AlexanderContact_bot")
+                                InlineKeyboardButton("DONATE ❤️", url=f"https://t.me/AlexanderContact_bot")
                             ]
                         ]
                     ),
