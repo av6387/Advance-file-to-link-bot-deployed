@@ -7,7 +7,7 @@ from utils_bot import *
 from Adarsh import StartTime
 
 
-START_TEXT = """ Our Telegram Bot Is @SAmit_07bot\n\n Your Telegram DC Is : `{}`  """
+START_TEXT = """Your Telegram DC Is : `{}`  """
 
 
 @StreamBot.on_message(filters.regex("Channel"))
@@ -17,12 +17,12 @@ async def maintainers(b,m):
     except Exception:
                 await b.send_message(
                     chat_id=m.chat.id,
-                    text="[Achiever Classroom Lectures](https://t.me/+Zi50V2vPxL8xNGJh)\n\n[Enthuse Classroom Lectures](https://t.me/+81ZPiZ8WRr83NDIx)\n\n[Nurture ClassroomLectures](https://t.me/+tDEZxSV4M8U1YjNh)",
+                    text="[★ ADMIN](https://t.me/AlexanderContact_bot)",
                     
                     reply_markup=InlineKeyboardMarkup(
                         [
                             [
-                                InlineKeyboardButton("Backup🔰", url=f"https://t.me/Classroom_lecturess")
+                                InlineKeyboardButton("ミ★ MAIN CHANNEL ミ★", url=f"https://t.me/ALEXANDER_BOTZ")
                             ]
                         ]
                     ),
@@ -30,7 +30,7 @@ async def maintainers(b,m):
                     disable_web_page_preview=True)
             
          
-@StreamBot.on_message(filters.regex("Subscribe ❤️"))
+@StreamBot.on_message(filters.regex("DONATE "))
 async def follow_user(b,m):
     try:
        await b.send_message(chat_id=m.chat.id,text="HELLO",quote=True)
@@ -42,7 +42,7 @@ async def follow_user(b,m):
                     reply_markup=InlineKeyboardMarkup(
                         [
                             [
-                                InlineKeyboardButton("Subscribe ❤️", url=f"https://youtube.com/@AmitAD")
+                                InlineKeyboardButton("MESSAGE TO DONATE ❤️", url=f"https://t.me/AlexanderContact_bot")
                             ]
                         ]
                     ),
