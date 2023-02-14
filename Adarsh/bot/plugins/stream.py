@@ -19,6 +19,7 @@ MY_PASS = os.environ.get("MY_PASS", None)
 pass_dict = {}
 pass_db = Database(Var.DATABASE_URL, "ag_passwords")
 
+
 @StreamBot.on_message((filters.regex("login🔑") | filters.command("login")) , group=4)
 async def login_handler(c: Client, m: Message):
     try:
@@ -93,7 +94,6 @@ async def private_receive_handler(c: Client, m: Message):
                 
                 disable_web_page_preview=True)
             return
-    try:
     try:
         log_msg = await m.forward(chat_id=Var.BIN_CHANNEL)
         stream_link = f"{Var.URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
