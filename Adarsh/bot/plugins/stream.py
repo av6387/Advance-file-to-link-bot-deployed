@@ -21,40 +21,7 @@ pass_db = Database(Var.DATABASE_URL, "ag_passwords")
 
 
 @StreamBot.on_message((filters.regex("login🔑") | filters.command("login")) , group=4)
-async def login_handler(c: Client, m: Message):
-    try:
-        try:
-            ag = await m.reply_text("Now send me password.\n\n If You don't know check the MY_PASS Variable in heroku \n\n(You can use /cancel command to cancel the process)")
-            _text = await c.listen(m.chat.id, filters=filters.text, timeout=90)
-            if _text.text:
-                textp = _text.text
-                if textp == "/cancel":
-                   await ag.edit("Process Cancelled Successfully")
-                   return
-            else:
-                return
-        except TimeoutError:
-            await ag.edit("I can't wait more for password, try again")
-            return
-        if textp == MY_PASS:
-            await pass_db.add_user_pass(m.chat.id, textp)
-            ag_text = "yeah! you entered the password correctly"
-        else:
-            ag_text = "Wrong password, try again"
-        await ag.edit(ag_text)
-    except Exception as e:
-        print(e)
-
-@StreamBot.on_message((filters.command("amitt")) , group=4)
-async def login_handl(c: Client, m: Message):
-    if MY_PASS:
-        check_pass = await pass_db.get_user_pass(m.chat.id)
-        if check_pass== None:
-            await m.reply_text("Login first using /login cmd \n don\'t know the pass? request it from the Developer")
-            return
-        if check_pass != MY_PASS:
-            await pass_db.delete_user(m.chat.id)
-            return
+async def private_receive_handler(c: Client, m: Message):
     if not await db.is_user_exist(m.from_user.id):
         await db.add_user(m.from_user.id)
         await c.send_message(
