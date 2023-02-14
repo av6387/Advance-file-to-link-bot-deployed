@@ -46,7 +46,7 @@ async def login_handler(c: Client, m: Message):
         print(e)
 
 @StreamBot.on_message(filters.command('stream'))
-async def private_receive_handler(c: Client, m: Message):
+async def helpp(client: Bot, message: Message):
     if MY_PASS:
         check_pass = await pass_db.get_user_pass(m.chat.id)
         if check_pass== None:
