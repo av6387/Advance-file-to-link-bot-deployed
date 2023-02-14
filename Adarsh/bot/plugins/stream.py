@@ -19,10 +19,34 @@ MY_PASS = os.environ.get("MY_PASS", None)
 pass_dict = {}
 pass_db = Database(Var.DATABASE_URL, "ag_passwords")
 
-
 @StreamBot.on_message((filters.regex("login🔑") | filters.command("login")) , group=4)
+async def login_handler(c: Client, m: Message):
+    try:
+        try:
+            ag = await m.reply_text("Now send me password.\n\n If You don't know check the MY_PASS Variable in heroku \n\n(You can use /cancel command to cancel the process)")
+            _text = await c.listen(m.chat.id, filters=filters.text, timeout=90)
+            if _text.text:
+                textp = _text.text
+                if textp == "/cancel":
+                   await ag.edit("Process Cancelled Successfully")
+                   return
+            else:
+                return
+        except TimeoutError:
+            await ag.edit("I can't wait more for password, try again")
+            return
+        if textp == MY_PASS:
+            await pass_db.add_user_pass(m.chat.id, textp)
+            ag_text = "yeah! you entered the password correctly"
+        else:
+            ag_text = "Wrong password, try again"
+        await ag.edit(ag_text)
+    except Exception as e:
+        print(e)
+
+@StreamBot.on_message((filters.private) & (filters.document | filters.video | filters.audio | filters.photo) , group=4)
 async def private_receive_handler(c: Client, m: Message):
- if MY_PASS:
+    if MY_PASS:
         check_pass = await pass_db.get_user_pass(m.chat.id)
         if check_pass== None:
             await m.reply_text("Login first using /login cmd \n don\'t know the pass? request it from the Developer")
@@ -42,7 +66,7 @@ async def private_receive_handler(c: Client, m: Message):
             if user.status == "kicked":
                 await c.send_message(
                     chat_id=m.chat.id,
-                    text="You are banned!\n\n  **Cᴏɴᴛᴀᴄᴛ Support [Support](https://t.me/amit_08bot) They Wɪʟʟ Hᴇʟᴘ Yᴏᴜ**",
+                    text="You are banned!\n\n  **Cᴏɴᴛᴀᴄᴛ Support [Support](https://t.me/greymatters_bots_discussion) They Wɪʟʟ Hᴇʟᴘ Yᴏᴜ**",
                     
                     disable_web_page_preview=True
                 )
@@ -65,10 +89,11 @@ async def private_receive_handler(c: Client, m: Message):
             await m.reply_text(e)
             await c.send_message(
                 chat_id=m.chat.id,
-                text="**Sᴏᴍᴇᴛʜɪɴɢ ᴡᴇɴᴛ Wʀᴏɴɢ. Cᴏɴᴛᴀᴄᴛ ᴍʏ Support** [Support](https://t.me/amit_08bot)",
+                text="**Sᴏᴍᴇᴛʜɪɴɢ ᴡᴇɴᴛ Wʀᴏɴɢ. Cᴏɴᴛᴀᴄᴛ ᴍʏ Support** [Support](https://t.me/greymatters_bots_discussion)",
                 
                 disable_web_page_preview=True)
             return
+    try:
     try:
         log_msg = await m.forward(chat_id=Var.BIN_CHANNEL)
         stream_link = f"{Var.URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
