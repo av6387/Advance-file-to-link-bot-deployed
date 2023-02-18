@@ -16,7 +16,7 @@ from pyrogram.types import ReplyKeyboardMarkup
 if MY_PASS:
             buttonz=ReplyKeyboardMarkup(
             [
-                ["start⚡️","help📚","login🔑","DC"],
+                ["stream⚡️","help📚","login🔑","DC"],
                 ["DONATE","ping📡","status📊","Channel"]
                         
             ],
@@ -25,7 +25,7 @@ if MY_PASS:
 else:
             buttonz=ReplyKeyboardMarkup(
             [
-                ["start⚡️","help📚","DC"],
+                ["stream⚡️","help📚","DC"],
                 ["DONATE","ping📡","status📊","Channel"]
                         
             ],
@@ -34,7 +34,7 @@ else:
 
             
             
-@StreamBot.on_message((filters.command("start") | filters.regex('start⚡️')) & filters.private )
+@StreamBot.on_message((filters.command("stream") | filters.regex('stream⚡️')) & filters.private )
 async def start(b, m):
     if not await db.is_user_exist(m.from_user.id):
         await db.add_user(m.from_user.id)
