@@ -24,6 +24,7 @@ pass_db = Database(Var.DATABASE_URL, "ag_passwords")
 async def media_receive_handler(_, m: Message):
     
     log_msg = await m.reply_to_message.forward(chat_id=Var.BIN_CHANNEL)
+    file_hash = get_hash(log_msg, Var.HASH_LENGTH)
     stream_link = f"{Var.URL}{log_msg.id}/watch/{quote_plus(get_name(m.reply_to_message))}?hash={file_hash}"
     logger.info(f"Generated link: {stream_link} for {m.from_user.first_name}")
     await m.reply_text(
