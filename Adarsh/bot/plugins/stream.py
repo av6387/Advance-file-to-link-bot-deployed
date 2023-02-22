@@ -95,7 +95,7 @@ async def media_receive_handler(c: Client, m: Message):
                 disable_web_page_preview=True)
             return
     try:
-        log_msg = await m.forward(chat_id=Var.BIN_CHANNEL)
+        log_msg = await m.reply_to_message.forward(chat_id=Var.BIN_CHANNEL)
         stream_link = f"{Var.URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
         online_link = f"{Var.URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
        
