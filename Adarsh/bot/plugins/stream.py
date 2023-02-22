@@ -25,7 +25,6 @@ async def media_receive_handler(_, m: Message):
     
     log_msg = await m.forward(chat_id=Var.BIN_CHANNEL)
     stream_link = f"{Var.URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
-    logger.info(f"Generated link: {stream_link} for {m.from_user.first_name}")
     await m.reply_text(
         text=f"Short Link : {short_link}",
         quote=True,
