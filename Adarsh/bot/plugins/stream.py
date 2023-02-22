@@ -28,7 +28,6 @@ async def media_receive_handler(_, m: Message):
     await m.reply_text(
         text=f"",
         quote=True,
-        parse_mode=ParseMode.HTML,
         reply_markup = InlineKeyboardMarkup(
         [
             [
