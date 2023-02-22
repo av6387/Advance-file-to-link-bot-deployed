@@ -87,7 +87,7 @@ async def media_receive_handler(c: Client, m: Message):
             )
             return
         except Exception as e:
-            await m.reply_text(e)
+            await m.reply_to_message.reply_text(e)
             await c.send_message(
                 chat_id=m.chat.id,
                 text="**Sᴏᴍᴇᴛʜɪɴɢ ᴡᴇɴᴛ Wʀᴏɴɢ. Cᴏɴᴛᴀᴄᴛ ᴍʏ Support** [Support](https://t.me/greymatters_bots_discussion)",
