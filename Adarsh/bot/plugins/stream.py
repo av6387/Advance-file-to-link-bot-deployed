@@ -27,7 +27,7 @@ async def private_receive_handler(c: Client, m: Message):
 
         await log_msg.reply_text(text=f"**RᴇQᴜᴇꜱᴛᴇᴅ ʙʏ :** [{m.from_user.first_name}](tg://user?id={m.from_user.id})\n**Uꜱᴇʀ ɪᴅ :** `{m.from_user.id}`\n**Stream ʟɪɴᴋ :** {stream_link}", disable_web_page_preview=True,  quote=True)
         await m.edit_text(
-            text=(get_name(media_msg)),
+            text=(get_name(m.edit_text)),
        #     quote=True,
             disable_web_page_preview=True,
             reply_markup = InlineKeyboardMarkup(
