@@ -22,13 +22,12 @@ async def private_receive_handler(c: Client, m: Message):
         log_msg = await m.forward(chat_id=Var.BIN_CHANNEL)
         stream_link = f"{Var.URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
         online_link = f"{Var.URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
-        share_link = f"https://telegram.me/share/url?url={Var.URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
+        share_link = "https://telegram.me/share/url?url=f"{Var.URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}""
        
-        msg_text =""""""
 
         await log_msg.reply_text(text=f"**RᴇQᴜᴇꜱᴛᴇᴅ ʙʏ :** [{m.from_user.first_name}](tg://user?id={m.from_user.id})\n**Uꜱᴇʀ ɪᴅ :** `{m.from_user.id}`\n**Stream ʟɪɴᴋ :** {stream_link}", disable_web_page_preview=True,  quote=True)
         await m.edit_text(
-       #     text=msg_text.format(get_name(log_msg), humanbytes(get_media_file_size(m)), online_link, stream_link),
+            text="",
        #     quote=True,
             disable_web_page_preview=True,
             reply_markup = InlineKeyboardMarkup(
@@ -36,7 +35,7 @@ async def private_receive_handler(c: Client, m: Message):
                         InlineKeyboardButton("STREAM 🖥", url=stream_link), #Stream Link
                         InlineKeyboardButton('DOWNLOAD 📥', url=online_link), #Download Link
                ],[
-                        InlineKeyboardButton('SHARE STREAM LINK 🚀', url=share_link), #Share Link
+                        InlineKeyboardButton('SHARE LINK 🚀', url=share_link), #Share Link
                         InlineKeyboardButton('GROUP⚡️', url="https://t.me/+5rMWZYNOOJQzODg1")
                ]]
             )
