@@ -1,7 +1,6 @@
 #(c) Adarsh-Goel
 import os
 import asyncio
-import pycaption
 from asyncio import TimeoutError
 from Adarsh.bot import StreamBot
 from Adarsh.utils.database import Database
