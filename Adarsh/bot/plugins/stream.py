@@ -24,7 +24,7 @@ async def start(c: Client, m: Message):
         online_link = f"{Var.URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
         share_link = f"{Var.SHARE}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
 
-        msg_text ="""<b>✨✨ </b> <code>{}</code>\n#Amit"""
+        msg_text ="""<b>✨✨ </b> <code>{}</code>\nℂ𝕙𝕒𝕟𝕟𝕖𝕝 -» @Classroom_lecturesS\n#Amit"""
 
         await log_msg.reply_text(text=f"**RᴇQᴜᴇꜱᴛᴇᴅ ʙʏ :** [{m.from_user.first_name}](tg://user?id={m.from_user.id})\n**Uꜱᴇʀ ɪᴅ :** `{m.from_user.id}`\n**Stream ʟɪɴᴋ :** {stream_link}", disable_web_page_preview=True,  quote=True)
         await m.edit_text(
@@ -34,10 +34,6 @@ async def start(c: Client, m: Message):
             reply_markup = InlineKeyboardMarkup(
                [[
                         InlineKeyboardButton("STREAM 🖥", url=stream_link), #Stream Link
-                        InlineKeyboardButton('DOWNLOAD 📥', url=online_link), #Download Link
-               ],[
-                        InlineKeyboardButton('SHARE LINK 🚀', url=share_link), #Share Link
-                        InlineKeyboardButton('GROUP⚡️', url="https://t.me/+5rMWZYNOOJQzODg1")
+                        InlineKeyboardButton('DOWNLOAD 📥', url=online_link) #Download Link
                ]]
             )
-        )
