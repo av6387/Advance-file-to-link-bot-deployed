@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 class Var(object):
+    SHARE = "https://telegram.me/share/url?url=http://{}/".format(FQDN)
     MULTI_CLIENT = False
     API_ID = int(getenv('API_ID', ''))
     API_HASH = str(getenv('API_HASH', ''))
