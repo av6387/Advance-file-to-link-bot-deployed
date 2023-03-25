@@ -26,7 +26,7 @@ async def start(c: Client, m: Message):
        
 
         await log_msg.reply_text(text=f"**RᴇQᴜᴇꜱᴛᴇᴅ ʙʏ :** [{m.from_user.first_name}](tg://user?id={m.from_user.id})\n**Uꜱᴇʀ ɪᴅ :** `{m.from_user.id}`\n**Stream ʟɪɴᴋ :** {stream_link}", disable_web_page_preview=True,  quote=True)
-        await m.edit_message_text(
+        await c.edit_message_text(
               text= "",
        #     quote=True,
             disable_web_page_preview=True,
