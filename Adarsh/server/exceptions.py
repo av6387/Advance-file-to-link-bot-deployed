@@ -3,4 +3,4 @@ class InvalidHash(Exception):
     message = "Invalid hash"
 
 class FIleNotFound(Exception):
-    message = "File not found"
+    message = "LINK EXPIRE. REGENRATE YOUR LINK"
