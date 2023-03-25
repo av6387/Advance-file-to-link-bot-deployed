@@ -17,8 +17,7 @@ db = Database(Var.DATABASE_URL, Var.name)
 
 
 @StreamBot.on_message((filters.private) & (filters.document | filters.video | filters.audio | filters.photo) , group=4)
-async def private_receive_handler(c: Client, m: Message):,
-      def start(update, context):
+async def privat(c: Client, m: Message, update, context):
 
         log_msg = await m.forward(chat_id=Var.BIN_CHANNEL)
         stream_link = f"{Var.URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
