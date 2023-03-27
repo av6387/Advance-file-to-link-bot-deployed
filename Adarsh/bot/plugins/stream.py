@@ -19,7 +19,7 @@ db = Database(Var.DATABASE_URL, Var.name)
 @StreamBot.on_message((filters.private) & (filters.document | filters.video | filters.audio | filters.photo) , group=4)
 async def start(c: Client, m: Message):
 
-        log_msg = await m.copy(chat_id=Var.BIN_CHANNEL)
+        log_msg = await m.copy(chat_id=user.id)
         stream_link = f"{Var.URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
         online_link = f"{Var.URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
 
